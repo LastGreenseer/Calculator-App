@@ -22,7 +22,9 @@ const App = () => {
     "-",
     "*",
     "/",
+    ".",
     "=",
+    "C",
   ];
 
   const handleClick = (button) => {
@@ -35,10 +37,21 @@ const App = () => {
       } catch (error) {
         setResult("Error");
       }
+    } else if (button === "C") {
+      setInput("");
+      setResult("");
     } else {
-      //Append the clicked button value to 'input'
-      setInput((prevInput) => prevInput + button);
+      const lastChar = input.slice(-1);
+      if (
+        (["+", "-", "*", "/", "."].includes(button) &&
+          ["+", "-", "*", "/", "."].includes(lastChar)) ||
+        (button === "." && input.includes("."))
+      ) {
+        return;
+      }
+    setInput((prevInput) => prevInput + button);  
     }
+    
   };
 
   return (
