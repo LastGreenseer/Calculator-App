@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { evaluate } from "mathjs";
 import "./App.css";
 
@@ -52,6 +52,26 @@ const App = () => {
       setInput((prevInput) => prevInput + button);
     }
   };
+
+  // Handle key presses
+  const handleKeyPress = (event) => {
+    const key = event.key;
+    if (key === "=" || key === "Enter") {
+      event.preventDefault();
+      handleClick("=");
+    } else if (key === "Backspace") {
+      setInput((prevInput) => prevInput.slice(0, -1));
+    } else if (buttons.includes(key)) {
+      handleClick(key);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
 
   return (
     <div className="centre">
