@@ -42,10 +42,10 @@ const App = () => {
       setResult("");
     } else {
       const lastChar = input.slice(-1);
+      // This check prevents multiple consecutive operators (e.g., `++`,`--`, etc) and multiple decimals in a single number
       if (
-        (["+", "-", "*", "/", "."].includes(button) &&
-          ["+", "-", "*", "/", "."].includes(lastChar)) ||
-        (button === "." && input.includes("."))
+        ["+", "-", "*", "/", "."].includes(button) &&
+        ["+", "-", "*", "/", "."].includes(lastChar)
       ) {
         return;
       }

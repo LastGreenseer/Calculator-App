@@ -17,7 +17,6 @@
 
 .display {
   background-color: #138d6f;
-  /* box-shadow:0 6px 8px rgba(0, 0, 0, 0.486); ; */
   padding: 20px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -33,6 +32,12 @@
   color: rgba(0, 255, 13, 0.801);
   font-size: 24px;
   margin-top: 5px;
+}
+
+.buttonWrap {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
 }
 
 .btn {
