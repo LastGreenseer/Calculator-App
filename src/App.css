@@ -41,7 +41,7 @@
 }
 
 .btn {
-  background-color: #635d5d;
+  background-color: #2d9948;
   padding: 15px 30px;
   font-size: 19px;
   cursor: pointer;
@@ -50,4 +50,20 @@
 
 .btn:hover {
   background-color: #4c5eaf;
+}
+
+.numberBtn {
+  background-color: rgba(212, 212, 61, 0.727);
+}
+
+.numberBtn:hover {
+  background-color: pink;
+}
+
+.clearBtn {
+  background-color: rgba(219, 113, 13, 0.886);
+}
+
+.clearBtn:hover {
+  background-color: rgb(167, 32, 32);
 }

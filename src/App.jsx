@@ -17,8 +17,8 @@ const App = () => {
     "7",
     "8",
     "9",
-    "0",
     "+",
+    "0",
     "-",
     "*",
     "/",
@@ -49,9 +49,8 @@ const App = () => {
       ) {
         return;
       }
-    setInput((prevInput) => prevInput + button);  
+      setInput((prevInput) => prevInput + button);
     }
-    
   };
 
   return (
@@ -74,7 +73,11 @@ const App = () => {
               <button
                 key={index} // React requires a 'key' attribute for list items to uniquely identify them. Here, we use the 'index' of the button in the array as the key.
                 onClick={() => handleClick(button)}
-                className="btn"
+                //The check !isNaN(button) ensures that numberBtn is only applied to numeric buttons, allowing them to be styled seperatly
+                className={`btn ${!isNaN(button) ? "numberBtn" : ""} ${
+                  button === "C" ? "clearBtn" : ""
+                }`}
+                style={{ gridColumn: button === "C" ? "span 2" : "auto" }} // Allows `clearBtn` to span across 2 columns
               >
                 {button}
               </button>
